@@ -4,12 +4,21 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
+        <title>Voucher Generator</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
 
         <!-- Styles -->
+        <link rel='stylesheet' id='wp-block-library-css'  href='https://mdbootstrap.com/wp-includes/css/dist/block-library/style.min.css?ver=5.1.1' type='text/css' media='all' />
+        <link rel='stylesheet' id='contact-form-7-css'  href='https://mdbootstrap.com/wp-content/plugins/contact-form-7/includes/css/styles.css?ver=5.1.1' type='text/css' media='all' />
+        <style id='woocommerce-inline-inline-css' type='text/css'>
+        .woocommerce form .form-row .required { visibility: visible; }
+        </style>
+        <link rel='stylesheet' id='wsl-widget-css'  href='https://mdbootstrap.com/wp-content/plugins/wordpress-social-login/assets/css/style.css?ver=5.1.1' type='text/css' media='all' />
+        <link rel='stylesheet' id='compiled.css-css'  href='https://mdbootstrap.com/wp-content/themes/mdbootstrap4/css/compiled-4.7.7.min.css?ver=4.7.7' type='text/css' media='all' />
+
+
         <style>
             html, body {
                 background-color: #fff;
@@ -65,34 +74,73 @@
     </head>
     <body>
         <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @auth
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ route('login') }}">Login</a>
-
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}">Register</a>
-                        @endif
-                    @endauth
-                </div>
-            @endif
 
             <div class="content">
                 <div class="title m-b-md">
-                    Laravel
+                    Kisikoso Labs.
                 </div>
 
-                <div class="links">
-                    <a href="https://laravel.com/docs">Docs</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://blog.laravel.com">Blog</a>
-                    <a href="https://nova.laravel.com">Nova</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
-                </div>
+                  <!-- Default form login -->
+                <form method="POST" action="{{ route('vouchers.index') }}" class="text-center border border-light p-5">
+                {{-- <form method="POST"  class="text-center border border-light p-5"> --}}
+                    {{ csrf_field() }}
+                    <p class="h4 mb-4">Voucher Generator</p>
+
+                    {{-- alert --}}
+                    @if (session('status'))
+                        <div class="alert alert-success" role="alert">
+                            {{ session('status') }}
+                        </div>
+                    @endif
+                    @if ($errors->any())
+                        <div class="alert alert-danger">
+                            @foreach ($errors->all() as $error)
+                                {{ $error }} <br>
+                            @endforeach
+                        </div><br />
+                    @endif
+                    @if (\Session::has('success'))
+                        <div class="alert alert-success">
+                            <p>{{ \Session::get('success') }}</p>
+                        </div><br />
+                    @endif
+                    @if (\Session::has('warning'))
+                        <div class="alert alert-danger alert-block">
+                            <p>{{ \Session::get('warning') }}</p>
+                        </div><br />
+                    @endif
+
+
+
+                    <!-- Customer Name -->
+                    <input required type="text" id="name" name="name" class="form-control mb-4" placeholder="Your name" value="{{ old('name') }}">
+
+                    <!-- Email -->
+                    <input  required  type="text" id="email" name="email" class="form-control mb-4" placeholder="Input your valid email" value="{{ old('email') }}">
+
+                    {{-- Voucher Option --}}
+
+                    <select required class="browser-default custom-select" name="voucher">
+                        <option selected value="">Choose Your Voucher</option>
+                        @foreach ($voucherNames as $key )
+                    <option value="{{ $key->id }}">{{ $key->name }} *expired {{date("jS F, Y", strtotime($key->expired_date))}}</option>
+                        @endforeach
+                    </select>
+
+                    <!-- Generator Voucher button -->
+                    <button class="btn btn-info btn-block my-4" type="submit">Generate Voucher</button>
+
+                    <!-- Notify -->
+                    <p>
+                        If you want use your voucher please call admin.
+                    </p>
+
+                </form>
+                <br>
+                <p>
+                    kisikoso labs - 2019
+                </p>
+                <!-- Default form login -->
             </div>
         </div>
     </body>
