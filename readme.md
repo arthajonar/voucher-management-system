@@ -18,6 +18,15 @@ You can generate Database via migration and setup your mail at .env
 6. Customer can register code by contact Administrator then Administrator will register at backend.
 7. Voucher can register one time only.
 
+## Application Demo
+url:  [http://voucher.riato.website/](http://voucher.riato.website/)
+<br />
+Login: [http://voucher.riato.website/login](http://voucher.riato.website/login)
+<br />
+user: admin@admin.com
+<br />
+password: password
+
 ## Developer
 
 Voucher Management System is develop by KisiKoso Labs.
