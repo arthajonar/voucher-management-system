@@ -120,7 +120,7 @@
 
                                     </ul>
                                 </li>
-                                <li><a href="{{ url('voucherNames') }}">
+                                <li><a href="{{ url('vouchernames') }}">
                                         <i class="notika-icon notika-edit"></i> Master Voucher
                                     </a>
                                     <ul id="democrou" class="collapse dropdown-header-top">
