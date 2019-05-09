@@ -97,6 +97,7 @@
         </div>
     </div>
     <!-- Login Register area End-->
+
     <!-- jquery
 		============================================ -->
     <script src="{{ asset('js/vendor/jquery-1.12.4.min.js')}}"></script>

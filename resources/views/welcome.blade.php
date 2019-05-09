@@ -135,10 +135,23 @@
                         If you want use your voucher please call admin.
                     </p>
 
+                        {{-- <blockquote class="embedly-card">
+                                <h4>
+                                    <a href="https://github.com/arthajonar/voucher-management-system">
+                                        arthajonar/voucher-management-system
+                                    </a>
+                                </h4>
+                                <p>
+                                    Open Source Voucher Management System is a web application for manage voucher. used PHP with Laravel Framework and use MySQL for Database. - arthajonar/voucher-management-system
+                                </p>
+                            </blockquote>
+                            <script async src="//cdn.embedly.com/widgets/platform.js" charset="UTF-8"></script> --}}
+
                 </form>
                 <br>
                 <p>
-                    kisikoso labs - 2019
+                    <strong>Open Source Voucher Management System</strong> - Kisikoso Labs 2019 - <a class="provider-name" target="_blank" href="https://github.com/arthajonar/voucher-management-system"><img src="https://i-cdn.embed.ly/1/display?height=16&amp;key=fd92ebbc52fc43fb98f69e50e7893c13&amp;url=https%3A%2F%2Fgithub.githubassets.com%2Ffavicon.ico&amp;width=16" width="16" height="16" class="provider-favicon">
+                        GitHub</a>
                 </p>
                 <!-- Default form login -->
             </div>
