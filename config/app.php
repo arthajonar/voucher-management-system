@@ -233,7 +233,7 @@ return [
     | MailBoxLayer Key
     |--------------------------------------------------------------------------
     |
-    | Setup
+    | Setup mailboxlayer key
     |
     */
 
